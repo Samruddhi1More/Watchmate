@@ -3,19 +3,20 @@ version: "3.9"
 services:
   db:
     image: postgres
-    # ports:
-    #   - "5432:5432"
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
     environment:
-      # - PGHOST=host.docker.internal
-      # - PGPORT=5432
-      # - PGUSER=postgres
-      - POSTGRES_DB=imdblocal
-      - POSTGRES_USER=samruddhi
-      - POSTGRES_PASSWORD=sam@123
+      - PGHOST=host.docker.internal
+      - PGPORT=5432
+      - PGUSER=postgres
+      - POSTGRES_DB=imdb_local
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
     volumes: 
       - ./postgres-data:/var/lib/postgresql/data
     networks:
-      - IMDBdbmdp_services
+      - imdb_network
 
   web:
     container_name: imdbreview
@@ -29,7 +30,6 @@ services:
     depends_on:
       - db
     networks:
-      - IMDBdbmdp_services
-
+      - imdb_network
 networks:
-  IMDBdbmdp_services:
+  imdb_network:  
