@@ -1,6 +1,6 @@
 from rest_framework import permissions
 
-class AdminOrReadOnly(permissions.IsAdminUser):
+class IsAdminOrReadOnly(permissions.IsAdminUser):
 
     """
         This class applies a custom permission to access/edit info only by admin and rest can only read the info.
@@ -13,7 +13,7 @@ class AdminOrReadOnly(permissions.IsAdminUser):
             bool(request.user and request.user.is_staff)
 
 
-class ReviewUserOrReadOnly(permissions.BasePermission):
+class IsReviewUserOrReadOnly(permissions.BasePermission):
 
     """
     This class lets only the reviewer edit the review info and rest can only read the info.
