@@ -9,7 +9,7 @@ urlpatterns = [
     path('list/',WatchListAV.as_view(), name='watch-list'),
     path('<int:pk>/',WatchDetailAV.as_view(), name='watch-detail'),
     # path('', include(router.urls)),
-    path('stream/',StreamPlatformAV.as_view(), name='stream-platform'),
+    path('stream/',StreamPlatformAV.as_view(), name='stream-platform'),#Only by Admin
     # path('stream/<int:pk>', StreamDetailAV.as_view(), name= 'stream-detail'),
     # path('review', ReviewList.as_view(), name='review-list'),
     # path('review/<int:pk>', ReviewDetail.as_view(), name='review-detail'),
